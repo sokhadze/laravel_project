@@ -13,4 +13,8 @@ class FrontController extends Controller
     public function posts() {
         return view('posts');
     }
+
+    public function postCreate() {
+        return view('post_create');
+    }
 }

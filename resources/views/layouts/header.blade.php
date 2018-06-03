@@ -12,6 +12,7 @@
                         <li class="menu-active"><a href="{{ route('auth.login') }}">ექაუნთზე შესვლა</a></li>
                     @else
                         <li class="menu-active"><a href="{{ route('auth.login') }}">გასვლა</a></li>
+                        <li class="menu-active"><a href="{{ route('posts.create') }}">პოსტის დამატება</a></li>
                     @endif
                     <li class="menu-active"><a href="{{ route('posts') }}">პოსტები</a></li>
                     {{--<li><a href="#feature">Feature</a></li>--}}
