@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-lg-8 col-md-8 offset-2">
                     <h3 class="mb-30">შესვლა</h3>
-                    <form action="{{ route('auth.register.store') }}" method="POST">
+                    <form action="{{ route('auth.login.store') }}" method="POST">
                         {{ csrf_field() }}
                         <div class="mt-10">
                             <input type="text" name="email" placeholder="ელექტრონული ფოსტა" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ელექტრონული ფოსტა'" class="single-input">
