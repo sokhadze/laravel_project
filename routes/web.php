@@ -26,4 +26,10 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::get('login', ['as' => 'login.index', 'uses' => 'AdminAuthController@loginIndex']);
     Route::get('logout', ['as' => 'logout', 'uses' => 'AdminAuthController@logout']);
     Route::post('login', ['as' => 'login.post', 'uses' => 'AdminAuthController@login']);
+    Route::get('users', ['as' => 'users', 'uses' => 'UserController@index']);
+    Route::get('users/create', ['as' => 'users.create', 'uses' => 'UserController@create']);
+    Route::get('users/{user}', ['as' => 'users.edit', 'uses' => 'UserController@edit']);
+    Route::put('users/{user}', ['as' => 'users.put', 'uses' => 'UserController@put']);
+    Route::delete('users/{user}', ['as' => 'users.destroy', 'uses' => 'UserController@destroy']);
+    Route::post('users', ['as' => 'users.store', 'uses' => 'UserController@store']);
 });
