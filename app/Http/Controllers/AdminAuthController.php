@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class AdminAuthController extends Controller
 {
     public function __construct() {
-        $this->middleware('guest:admin');
+        $this->middleware('guest:admin')->except(['logout']);
     }
 
     protected function loginIndex() {
@@ -15,16 +15,22 @@ class AdminAuthController extends Controller
     }
 
     protected function login(Request $request) {
+//        dd($request->toArray());
 
         $try = \Auth::guard('admin')->attempt([
-            'username' => $request->usrname,
+            'username' => $request->username,
             'password' => $request->password
         ]);
         if ($try) {
-            return redirect('/admin');
+            return redirect()->route('admin.index');
         }
         else {
             return back();
         }
+    }
+
+    protected function logout() {
+        \Auth::guard('admin')->logout();
+        return redirect()->route('admin.login.index');
     }
 }

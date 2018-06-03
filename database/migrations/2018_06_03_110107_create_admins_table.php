@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -17,8 +18,11 @@ class CreateAdminsTable extends Migration
             $table->increments('id');
             $table->string('username')->unique();
             $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
+
+        DB::table('admins')->insert(['username' => 'admin', 'password' => bcrypt('admin')]);
     }
 
     /**

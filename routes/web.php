@@ -11,16 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
+Route::get('', ['as' => 'index', 'uses' => 'FrontController@index']);
 Route::get('register', ['as' => 'auth.register', 'uses' => 'AuthController@register']);
+Route::get('login', ['as' => 'auth.login', 'uses' => 'AuthController@loginIndex']);
+Route::get('logout', ['as' => 'auth.logout', 'uses' => 'AuthController@logout']);
+Route::post('login', ['as' => 'auth.login.store', 'uses' => 'AuthController@login']);
 Route::post('register', ['as' => 'auth.register.store', 'uses' => 'AuthController@registerStore']);
 
 
 Route::name('admin.')->prefix('admin')->group(function () {
     Route::get('', ['as' => 'index', 'uses' => 'AdminController@index']);
     Route::get('login', ['as' => 'login.index', 'uses' => 'AdminAuthController@loginIndex']);
+    Route::get('logout', ['as' => 'logout', 'uses' => 'AdminAuthController@logout']);
     Route::post('login', ['as' => 'login.post', 'uses' => 'AdminAuthController@login']);
 });
