@@ -20,53 +20,47 @@
         <div class="col-xs-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">მომხმარებლის რედაქტირება</h3>
+                    <h3 class="box-title">პოსტის რედაქტირება</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" method="POST" action="{{ route('admin.users.put', $user->id) }}">
+                <form role="form" method="POST" action="{{ route('admin.posts.put', $post->id) }}">
                     {{ csrf_field() }}
                     {{ method_field('put') }}
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">სახელი</label>
-                            <input type="text" class="form-control" name="name" value="{{ $user->name }}">
+                            <label for="exampleInputEmail1">სათაური</label>
+                            <input type="text" class="form-control" name="title" value="{{ $post->title }}">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">გვარი</label>
-                            <input type="text" class="form-control" name="lastname" value="{{ $user->lastname }}">
+                            <label for="exampleInputPassword1">აღწერა</label>
+                            <textarea name="description" class="form-control">{{ $post->description }}</textarea>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">ელექტრონული ფოსტა</label>
-                            <input type="text" class="form-control" name="email" value="{{ $user->email }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">დაბადების თარიღი</label>
-                            <input type="date" class="form-control" name="birthdate" value="{{ $user->birthday }}">
+                            <label for="exampleInputPassword1">სურათი</label><br>
+                            <img src="/storage/images/{{ $post->image }}" style="height: 100px;">
+                            <input type="file" class="form-control" name="image">
                         </div>
 
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">მომხმარებლის ტიპი</label>
-                            <select class="form-control" name="role">
-                                <option value="user" @if($user->role === 'user') selected="selected" @endif>მომხმარებელი</option>
-                                <option value="poster" @if($user->role === 'poster') selected="selected" @endif>პოსტერი</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">პაროლი</label>
-                            <input type="text" class="form-control" name="password">
-                        </div>
+                        {{--<div class="form-group">--}}
+                            {{--<label for="exampleInputPassword1">მომხმარებლის ტიპი</label>--}}
+                            {{--<select class="form-control" name="role">--}}
+                                {{--<option value="user" @if($post->role === 'user') selected="selected" @endif>მომხმარებელი</option>--}}
+                                {{--<option value="poster" @if($post->role === 'poster') selected="selected" @endif>პოსტერი</option>--}}
+                            {{--</select>--}}
+                        {{--</div>--}}
                         {{--<div class="form-group">--}}
                             {{--<label for="exampleInputFile">File input</label>--}}
                             {{--<input type="file" id="exampleInputFile">--}}
 
                             {{--<p class="help-block">Example block-level help text here.</p>--}}
                         {{--</div>--}}
-                        {{--<div class="checkbox">--}}
-                            {{--<label>--}}
-                                {{--<input type="checkbox"> Check me out--}}
-                            {{--</label>--}}
-                        {{--</div>--}}
+                        <input type="hidden" name="published" value="0">
+                        <div class="checkbox">
+                            <label>
+                                <input name="published" type="checkbox" value="1" @if($post->published) checked @endif> გამოქვეყნებული
+                            </label>
+                        </div>
                     </div>
                     <!-- /.box-body -->
 

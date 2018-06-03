@@ -22,21 +22,21 @@
             <div class="row">
                 <div class="col-lg-8 col-md-8 offset-2">
                     <h3 class="mb-30">პოსტის დამატება</h3>
-                    <form action="{{ route('posts.store') }}" method="POST">
+                    <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="mt-10">
-                            <input type="text" name="email" placeholder="სათაური" class="single-input">
+                            <input type="text" name="title" placeholder="სათაური" class="single-input">
                         </div>
                         <div class="mt-10">
                             <input type="text" name="profession" placeholder="პროფესია" class="single-input">
                         </div>
                         <div class="mt-10">
-                            <input type="text" name="email" placeholder="სურათი" class="single-input">
+                            <input type="file" name="image" placeholder="სურათი" class="single-input">
                         </div>
                         <div class="mt-10">
-                            <input type="password" name="password" placeholder="პაროლი" class="single-input">
+                            <textarea name="description" placeholder="აღწერა" class="single-input"></textarea>
                         </div>
-                        <button type="submit" class="genric-btn primary circle arrow">შესვლა<span class="lnr lnr-arrow-right"></span></button>
+                        <button type="submit" class="genric-btn primary circle arrow">დამატება<span class="lnr lnr-arrow-right"></span></button>
                     </form>
                 </div>
         </section>

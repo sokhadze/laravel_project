@@ -36,22 +36,25 @@
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover">
                         <tr>
+                            <th>დამატების თარიღი</th>
                             <th>სახელი</th>
                             <th>გვარი</th>
-                            <th>დაბადების თარიღი</th>
-                            <th>როლი</th>
-                            <th></th>
+                            <th>სათაური</th>
+                            <th>პროფესია</th>
+                            <th>გამოქვეყნებული</th>
                             {{--<th>როლი</th>--}}
                         </tr>
                         <tbody>
                         @foreach($records as $record)
                             <tr>
-                                <td>{{ $record->name }}</td>
-                                <td>{{ $record->lastname }}</td>
-                                <td>{{ $record->birthdate }}</td>
-                                <td>{{ $record->role }}</td>
+                                <td>{{ $record->created_at->format('d.m.Y H:m:s') }}</td>
+                                <td>{{ $record->user->name }}</td>
+                                <td>{{ $record->user->lastname }}</td>
+                                <td>{{ $record->title }}</td>
+                                <td>{{ $record->profession }}</td>
+                                <td>{{ $record->published }}</td>
                                 <td>
-                                    <a href="{{ route('admin.users.edit', $record->id) }}" class="btn btn-default">Edit</a>
+                                    <a href="{{ route('admin.posts.edit', $record->id) }}" class="btn btn-default">Edit</a>
                                     <button data-id="{{ $record->id }}" class="btn btn-default delete">Delete</button>
                                 </td>
                                 {{--<td></td>--}}
@@ -76,7 +79,7 @@
             $this = $(this);
             var id = $this.attr('data-id');
             $.ajax({
-                url: '{{ route('admin.users.destroy', '/') }}/' + id,
+                url: '{{ route('admin.posts.destroy', '/') }}/' + id,
                 method: "POST",
                 data: {
                     _method: "delete"

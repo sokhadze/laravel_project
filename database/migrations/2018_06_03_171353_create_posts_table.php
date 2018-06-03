@@ -18,8 +18,9 @@ class CreatePostsTable extends Migration
             $table->integer('user_id');
             $table->string('title');
             $table->text('description');
-            $table->string('proffesion');
-            $table->string('image');
+            $table->string('profession');
+            $table->tinyInteger('published')->default(0);
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
