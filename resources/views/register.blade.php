@@ -37,6 +37,14 @@
                             <input type="text" name="password" placeholder="პაროლი" onfocus="this.placeholder = ''" onblur="this.placeholder = 'პაროლი'"  class="single-input">
                         </div>
                         <div class="mt-10">
+                            {{--<input type="text" name="role" placeholder="პაროლი" onfocus="this.placeholder = ''" onblur="this.placeholder = 'პაროლი'"  class="single-input">--}}
+                            <select class="single-input" name="role">
+                                <option style="display:none;" selected="selected" value="user">მომხმარებლის ტიპი</option>
+                                <option value="user">მომხმარებელი</option>
+                                <option value="poster">პოსტერი</option>
+                            </select>
+                        </div>
+                        <div class="mt-10">
                             <input type="date" name="birthdate" class="single-input">
                         </div>
                         <button type="submit" class="genric-btn primary circle arrow">რეგისტრაცია<span class="lnr lnr-arrow-right"></span></button>
