@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth')->only(['postCreate', 'postStore']);
+    }
+
     public function index() {
         return view('index');
     }
@@ -16,5 +20,11 @@ class FrontController extends Controller
 
     public function postCreate() {
         return view('post_create');
+    }
+
+
+    public function postStore() {
+        return view('post_create');
+
     }
 }

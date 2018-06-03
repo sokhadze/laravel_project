@@ -19,6 +19,7 @@ Route::post('login', ['as' => 'auth.login.store', 'uses' => 'AuthController@logi
 Route::post('register', ['as' => 'auth.register.store', 'uses' => 'AuthController@registerStore']);
 Route::get('posts', ['as' => 'posts', 'uses' => 'FrontController@posts']);
 Route::get('posts/create', ['as' => 'posts.create', 'uses' => 'FrontController@postCreate']);
+Route::get('posts/store', ['as' => 'posts.store', 'uses' => 'FrontController@postStore']);
 
 
 Route::name('admin.')->prefix('admin')->group(function () {
@@ -32,4 +33,11 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::put('users/{user}', ['as' => 'users.put', 'uses' => 'UserController@put']);
     Route::delete('users/{user}', ['as' => 'users.destroy', 'uses' => 'UserController@destroy']);
     Route::post('users', ['as' => 'users.store', 'uses' => 'UserController@store']);
+
+    Route::get('posts', ['as' => 'posts', 'uses' => 'PostController@index']);
+    Route::get('posts/create', ['as' => 'posts.create', 'uses' => 'PostController@create']);
+    Route::get('posts/{user}', ['as' => 'posts.edit', 'uses' => 'PostController@edit']);
+    Route::put('posts/{user}', ['as' => 'posts.put', 'uses' => 'PostController@put']);
+    Route::delete('posts/{user}', ['as' => 'posts.destroy', 'uses' => 'PostController@destroy']);
+    Route::post('posts', ['as' => 'posts.store', 'uses' => 'PostController@store']);
 });

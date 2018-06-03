@@ -34,7 +34,7 @@
                             <input type="text" name="email" placeholder="ელექტრონული ფოსტა" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ელექტრონული ფოსტა'"  class="single-input">
                         </div>
                         <div class="mt-10">
-                            <input type="text" name="password" placeholder="პაროლი" onfocus="this.placeholder = ''" onblur="this.placeholder = 'პაროლი'"  class="single-input">
+                            <input type="password" name="password" placeholder="პაროლი" onfocus="this.placeholder = ''" onblur="this.placeholder = 'პაროლი'"  class="single-input">
                         </div>
                         <div class="mt-10">
                             {{--<input type="text" name="role" placeholder="პაროლი" onfocus="this.placeholder = ''" onblur="this.placeholder = 'პაროლი'"  class="single-input">--}}
