@@ -10,7 +10,21 @@ class AdminAuthController extends Controller
         $this->middleware('guest:admin');
     }
 
-    protected function login() {
+    protected function loginIndex() {
+        return view('admin.login');
+    }
 
+    protected function login(Request $request) {
+
+        $try = \Auth::attempt([
+            'username' => $request->usrname,
+            'password' => $request->password
+        ]);
+        if ($try) {
+            return redirect('/admin');
+        }
+        else {
+            return back();
+        }
     }
 }
