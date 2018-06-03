@@ -1,8 +1,5 @@
 @extends('layouts.main')
 @section('body')
-
-    @include('layouts.header')
-
     <!-- start banner Area -->
     <section class="banner-area relative" id="home" data-parallax="scroll" data-image-src="img/header-bg.jpg">
         <div class="overlay-bg overlay"></div>

@@ -31,6 +31,7 @@
 </head>
 <body>
 <!-- start footer Area -->
+@include('layouts.header')
 @yield('body')
 
 <footer class="footer-area section-gap">
