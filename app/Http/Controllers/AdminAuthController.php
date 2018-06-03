@@ -16,7 +16,7 @@ class AdminAuthController extends Controller
 
     protected function login(Request $request) {
 
-        $try = \Auth::attempt([
+        $try = \Auth::guard('admin')->attempt([
             'username' => $request->usrname,
             'password' => $request->password
         ]);
