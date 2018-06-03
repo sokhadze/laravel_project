@@ -22,7 +22,8 @@ class AuthController extends Controller
             'lastname' => $request->lastname,
             'birthdate' => $request->birthdate,
             'password' => bcrypt($request->password),
-            'email' => $request->email
+            'email' => $request->email,
+            'role' => $request->role
         ]);
         return redirect()->route('auth.login');
     }
