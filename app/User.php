@@ -28,4 +28,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function checkPoster() {
+        if (\Auth::check() && $this->role === 'poster') {
+            return true;
+        }
+        return false;
+    }
 }
