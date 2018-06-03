@@ -9,4 +9,8 @@ class FrontController extends Controller
     public function index() {
         return view('index');
     }
+
+    public function posts() {
+        return view('posts');
+    }
 }

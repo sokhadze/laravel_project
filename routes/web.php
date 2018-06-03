@@ -17,6 +17,7 @@ Route::get('login', ['as' => 'auth.login', 'uses' => 'AuthController@loginIndex'
 Route::get('logout', ['as' => 'auth.logout', 'uses' => 'AuthController@logout']);
 Route::post('login', ['as' => 'auth.login.store', 'uses' => 'AuthController@login']);
 Route::post('register', ['as' => 'auth.register.store', 'uses' => 'AuthController@registerStore']);
+Route::get('posts', ['as' => 'posts', 'uses' => 'FrontController@posts']);
 
 
 Route::name('admin.')->prefix('admin')->group(function () {

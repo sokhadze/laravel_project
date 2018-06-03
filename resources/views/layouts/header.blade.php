@@ -13,6 +13,7 @@
                     @else
                         <li class="menu-active"><a href="{{ route('auth.login') }}">გასვლა</a></li>
                     @endif
+                    <li class="menu-active"><a href="{{ route('posts') }}">პოსტები</a></li>
                     {{--<li><a href="#feature">Feature</a></li>--}}
                     {{--<li><a href="#project">Project</a></li>--}}
                     {{--<li><a href="#service">Service</a></li>--}}
