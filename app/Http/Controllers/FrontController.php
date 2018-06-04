@@ -13,9 +13,10 @@ class FrontController extends Controller
     }
 
     public function index() {
+        $top_rated = Post::topRated();
         $reviews = PostReview::latest()->limit(10)->get();
         $posts = Post::latest()->limit(3)->get();
-        return view('index', compact('reviews', 'posts'));
+        return view('index', compact('reviews', 'posts', 'top_rated'));
     }
 
     public function posts() {
