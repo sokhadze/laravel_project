@@ -21,6 +21,7 @@ Route::get('posts', ['as' => 'posts', 'uses' => 'FrontController@posts']);
 Route::get('posts/show/{post}', ['as' => 'posts.show', 'uses' => 'FrontController@postShow']);
 Route::get('posts/create', ['as' => 'posts.create', 'uses' => 'FrontController@postCreate']);
 Route::post('posts/store', ['as' => 'posts.store', 'uses' => 'FrontController@postStore']);
+Route::post('reviews/store/{post}', ['as' => 'reviews.store', 'uses' => 'PostReviewController@store']);
 
 
 Route::name('admin.')->prefix('admin')->group(function () {

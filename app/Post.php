@@ -13,10 +13,14 @@ class Post extends Model
     }
 
     public function post_reviews() {
-        $this->hasMany(PostReview::class);
+        return $this->hasMany(PostReview::class);
     }
 
     public function scopePublished($query) {
         return $query->where('published', 1);
+    }
+
+    public function avgRating() {
+        return round($this->post_reviews()->avg('rating'), 2);
     }
 }

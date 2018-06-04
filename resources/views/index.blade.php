@@ -57,39 +57,23 @@
             <div class="row d-flex justify-content-center">
                 <div class="menu-content pb-60 col-lg-8">
                     <div class="title text-center">
-                        <h1 class="mb-10">Some Features that Made us Unique</h1>
-                        <p>Who are in extremely love with eco friendly system.</p>
+                        <h1 class="mb-10">უახლესი პოსტები</h1>
+                        {{--<p>Who are in extremely love with eco friendly system.</p>--}}
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="single-offered">
-                        <img class="img-fluid" src="img/s1.png" alt="">
-                        <a href="#"><h4 class="pt-20 pb-20">Basic & Common Repairs</h4></a>
-                        <p>
-                            Computer users and programmers have become so accustomed to using Windows, even for the changing capabilities and the appearances of the graphical.
-                        </p>
+                @foreach ($posts as $post)
+                    <div class="col-lg-4">
+                        <div class="single-offered">
+                            <img class="img-fluid" src="/storage/images/{{ $post->image }}" alt="">
+                            <a href="{{ route('posts.show', $post->id) }}"><h4 class="pt-20">{{ $post->title }}</h4><h6 style="color: grey;" class="pb-20">{{ $post->created_at->format('d.m.Y') }}</h6> <span style="color: lightgrey;">{{ $post->avgRating() }}</span></a>
+                            <p>
+                                {{ substr($post->description, 0, 100) }}
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="single-offered">
-                        <img class="img-fluid" src="img/s2.png" alt="">
-                        <a href="#"><h4 class="pt-20 pb-20">Brake Repairs & Services</h4></a>
-                        <p>
-                            Computer users and programmers have become so accustomed to using Windows, even for the changing capabilities and the appearances of the graphical.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="single-offered">
-                        <img class="img-fluid" src="img/s3.png" alt="">
-                        <a href="#"><h4 class="pt-20 pb-20">Preventive Maintenance</h4></a>
-                        <p>
-                            Computer users and programmers have become so accustomed to using Windows, even for the changing capabilities and the appearances of the graphical.
-                        </p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -297,30 +281,32 @@
         <div class="container">
             <div class="row">
                 <div class="active-testimonial">
+                    {{--<div class="single-testimonial item d-flex flex-row">--}}
+                        {{--<div class="thumb">--}}
+                            {{--<img class="img-fluid" src="img/user1.png" alt="">--}}
+                        {{--</div>--}}
+                        {{--<div class="desc">--}}
+                            {{--<p>--}}
+                                {{--Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware.--}}
+                            {{--</p>--}}
+                            {{--<h4 mt-30>Mark Alviro Wiens</h4>--}}
+                            {{--<p>CEO at Google</p>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    @foreach($reviews as $review)
                     <div class="single-testimonial item d-flex flex-row">
                         <div class="thumb">
-                            <img class="img-fluid" src="img/user1.png" alt="">
+                            {{--<img class="img-fluid" src="img/user2.png" alt="">--}}
                         </div>
                         <div class="desc">
                             <p>
-                                Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware.
+                                {{ substr($review->review, 0, 120) }}
                             </p>
-                            <h4 mt-30>Mark Alviro Wiens</h4>
-                            <p>CEO at Google</p>
+                            <a href="{{ route('posts.show', $review->post->id) }}" class="mt-30">{{ $review->post->title }} {{ $review->rating }}</a>
+                            <p>{{ $review->user->name }}  {{ $review->user->lastname }}</p>
                         </div>
                     </div>
-                    <div class="single-testimonial item d-flex flex-row">
-                        <div class="thumb">
-                            <img class="img-fluid" src="img/user2.png" alt="">
-                        </div>
-                        <div class="desc">
-                            <p>
-                                Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware.
-                            </p>
-                            <h4 mt-30>Mark Alviro Wiens</h4>
-                            <p>CEO at Google</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -33,7 +33,7 @@
                         <div class="col-lg-3">
                             <div class="single-offered">
                                 <img class="img-fluid" src="/storage/images/{{ $record->image }}" alt="">
-                                <a href="{{ route('posts.show', $record->id) }}"><h4 class="pt-20">{{ $record->title }}</h4><h6 style="color: grey;" class="pb-20">{{ $record->created_at->format('d.m.Y') }}</h6></a>
+                                <a href="{{ route('posts.show', $record->id) }}"><h4 class="pt-20">{{ $record->title }}</h4><h6 style="color: grey;" class="pb-20">{{ $record->created_at->format('d.m.Y') }}</h6> <span style="color: lightgrey;">{{ $record->avgRating() }}</span></a>
                                 <p>
                                     {{ substr($record->description, 0, 100) }}
                                 </p>

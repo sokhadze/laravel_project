@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\PostReview;
 
 class FrontController extends Controller
 {
@@ -12,7 +13,9 @@ class FrontController extends Controller
     }
 
     public function index() {
-        return view('index');
+        $reviews = PostReview::latest()->limit(10)->get();
+        $posts = Post::latest()->limit(3)->get();
+        return view('index', compact('reviews', 'posts'));
     }
 
     public function posts() {
