@@ -20,27 +20,29 @@
         <div class="col-xs-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">პოსტის რედაქტირება</h3>
+                    <h3 class="box-title">Review -ს რედაქტირება</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" method="POST" action="{{ route('admin.posts.put', $post->id) }}">
+                <form role="form" method="POST" action="{{ route('admin.reviews.put', $post->id) }}">
                     {{ csrf_field() }}
                     {{ method_field('put') }}
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">სათაური</label>
-                            <input type="text" class="form-control" name="title" value="{{ $post->title }}">
+                            <label for="exampleInputEmail1">რეიტინგი</label>
+                            <select class="form-control" name="rating">
+                                <option @if($post->rating == 1) selected="selected" @endif value="1">1</option>
+                                <option @if($post->rating == 2) selected="selected" @endif value="2">2</option>
+                                <option @if($post->rating == 3) selected="selected" @endif value="3">3</option>
+                                <option @if($post->rating == 4) selected="selected" @endif value="4">4</option>
+                                <option  @if($post->rating == 5) selected="selected" @endif value="5">5</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">აღწერა</label>
-                            <textarea name="description" class="form-control">{{ $post->description }}</textarea>
+                            <label for="exampleInputPassword1">განხილვა</label>
+                            <textarea name="review" class="form-control">{{ $post->review }}</textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">სურათი</label><br>
-                            <img src="/storage/images/{{ $post->image }}" style="height: 100px;">
-                            <input type="file" class="form-control" name="image">
-                        </div>
+
 
                         {{--<div class="form-group">--}}
                             {{--<label for="exampleInputPassword1">მომხმარებლის ტიპი</label>--}}
@@ -55,12 +57,12 @@
 
                             {{--<p class="help-block">Example block-level help text here.</p>--}}
                         {{--</div>--}}
-                        <input type="hidden" name="published" value="0">
-                        <div class="checkbox">
-                            <label>
-                                <input name="published" type="checkbox" value="1" @if($post->published) checked @endif> გამოქვეყნებული
-                            </label>
-                        </div>
+                        {{--<input type="hidden" name="published" value="0">--}}
+                        {{--<div class="checkbox">--}}
+                            {{--<label>--}}
+                                {{--<input name="published" type="checkbox" value="1" @if($post->published) checked @endif> გამოქვეყნებული--}}
+                            {{--</label>--}}
+                        {{--</div>--}}
                     </div>
                     <!-- /.box-body -->
 

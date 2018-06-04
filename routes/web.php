@@ -42,4 +42,11 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::put('posts/{post}', ['as' => 'posts.put', 'uses' => 'PostController@put']);
     Route::delete('posts/{post}', ['as' => 'posts.destroy', 'uses' => 'PostController@destroy']);
     Route::post('posts', ['as' => 'posts.store', 'uses' => 'PostController@store']);
+
+    Route::get('reviews', ['as' => 'reviews', 'uses' => 'PostReviewController@index']);
+    Route::get('reviews/create', ['as' => 'reviews.create', 'uses' => 'PostReviewController@create']);
+    Route::get('reviews/{post}', ['as' => 'reviews.edit', 'uses' => 'PostReviewController@edit']);
+    Route::put('reviews/{post}', ['as' => 'reviews.put', 'uses' => 'PostReviewController@put']);
+    Route::delete('reviews/{post}', ['as' => 'reviews.destroy', 'uses' => 'PostReviewController@destroy']);
+    Route::post('reviews', ['as' => 'reviews.store', 'uses' => 'PostReviewController@store']);
 });

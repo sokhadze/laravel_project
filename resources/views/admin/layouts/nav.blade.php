@@ -10,6 +10,11 @@
             <i class="fa fa-users"></i> <span>პოსტები</span>
         </a>
     </li>
+    <li>
+        <a href="{{ route('admin.reviews') }}">
+            <i class="fa fa-users"></i> <span>განხილვები</span>
+        </a>
+    </li>
     {{--<li class="treeview">--}}
         {{--<a href="#">--}}
             {{--<i class="fa fa-files-o"></i>--}}

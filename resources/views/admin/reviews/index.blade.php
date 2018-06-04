@@ -20,7 +20,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">პოსტები</h3>
+                    <h3 class="box-title">Review-ები</h3>
 
                     <div class="box-tools">
                         <!-- <div class="input-group input-group-sm" style="width: 150px;"> -->
@@ -39,9 +39,8 @@
                             <th>დამატების თარიღი</th>
                             <th>სახელი</th>
                             <th>გვარი</th>
-                            <th>სათაური</th>
-                            <th>პროფესია</th>
-                            <th>გამოქვეყნებული</th>
+                            <th>რეიტინგი</th>
+                            <th>პოსტი</th>
                             {{--<th>როლი</th>--}}
                         </tr>
                         <tbody>
@@ -50,11 +49,11 @@
                                 <td>{{ $record->created_at->format('d.m.Y H:m:s') }}</td>
                                 <td>{{ $record->user->name }}</td>
                                 <td>{{ $record->user->lastname }}</td>
-                                <td>{{ $record->title }}</td>
-                                <td>{{ $record->profession }}</td>
-                                <td>{{ $record->published }}</td>
+                                <td>{{ $record->rating }}</td>
+                                <td><a href="{{ route('posts.show', $record->post->id) }}">{{ $record->post->title }}</td>
+                                {{--<td>{{ $record->published }}</td>--}}
                                 <td>
-                                    <a href="{{ route('admin.posts.edit', $record->id) }}" class="btn btn-default">Edit</a>
+                                    <a href="{{ route('admin.reviews.edit', $record->id) }}" class="btn btn-default">Edit</a>
                                     <button data-id="{{ $record->id }}" class="btn btn-default delete">Delete</button>
                                 </td>
                                 {{--<td></td>--}}
@@ -79,7 +78,7 @@
             $this = $(this);
             var id = $this.attr('data-id');
             $.ajax({
-                url: '{{ route('admin.posts.destroy', '/') }}/' + id,
+                url: '{{ route('admin.reviews.destroy', '/') }}/' + id,
                 method: "POST",
                 data: {
                     _method: "delete"
