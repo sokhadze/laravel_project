@@ -21,6 +21,7 @@
     CSS
     ============================================= -->
     <link rel="stylesheet" href="/css/linearicons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/magnific-popup.css">
@@ -83,7 +84,7 @@
         </div>
         <div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap">
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            <p class="footer-text m-0">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+            <p class="footer-text m-0">Copyright &copy;<script>document.write(new Date().getFullYear());</script></p>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             <div class="footer-social d-flex align-items-center">
                 <a href="#"><i class="fa fa-facebook"></i></a>
