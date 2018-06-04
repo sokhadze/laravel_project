@@ -15,7 +15,7 @@ class FrontController extends Controller
     public function index() {
         $top_rated = Post::topRated();
         $reviews = PostReview::latest()->limit(10)->get();
-        $posts = Post::latest()->limit(3)->get();
+        $posts = Post::latest()->published()->limit(3)->get();
         return view('index', compact('reviews', 'posts', 'top_rated'));
     }
 
@@ -29,11 +29,17 @@ class FrontController extends Controller
     }
 
     public function postCreate() {
-        return view('post_create');
+        return view('post_create')->with('swal', 'რეგისტრაცია წარმატებით განხორციელდა.');
     }
 
 
     public function postStore(Request $request) {
+        $this->validate($request, [
+            'title' => 'required',
+            'profession' => 'required',
+            'description' => 'required',
+            'image' => 'required|image'
+        ]);
         if ($request->hasFile('image')) {
             $rand_name = str_random(32);
             $ext = \File::extension($request->file('image')->getClientOriginalName());
@@ -52,7 +58,9 @@ class FrontController extends Controller
             'description' => $request->description
         ]);
 
-        return redirect()->route('posts');
+        return redirect()->route('posts')->with('swal', 'პოსტი წარმატებით დაემატა, ის გამოჩნდება მოდერაციის გავლის შემდეგ.');
+        
+    
 
 //        return view('post_create');
     }

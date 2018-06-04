@@ -24,19 +24,19 @@
                     <h3 class="mb-30">სარეგისტრაციო ფორმა</h3>
                     <form action="{{ route('auth.register.store') }}" method="POST">
                         {{ csrf_field() }}
-                        <div class="mt-10">
+                        <div class="mt-10 @if($errors->has('name')) has_error @endif">
                             <input type="text" name="name" placeholder="სახელი" onfocus="this.placeholder = ''" onblur="this.placeholder = 'სახელი'" class="single-input">
                         </div>
-                        <div class="mt-10">
+                        <div class="mt-10 @if($errors->has('lastname')) has_error @endif">
                             <input type="text" name="lastname" placeholder="გვარი" onfocus="this.placeholder = ''" onblur="this.placeholder = 'გვარი'"  class="single-input">
                         </div>
-                        <div class="mt-10">
+                        <div class="mt-10 @if($errors->has('email')) has_error @endif">
                             <input type="text" name="email" placeholder="ელექტრონული ფოსტა" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ელექტრონული ფოსტა'"  class="single-input">
                         </div>
-                        <div class="mt-10">
+                        <div class="mt-10 @if($errors->has('password')) has_error @endif">
                             <input type="password" name="password" placeholder="პაროლი" onfocus="this.placeholder = ''" onblur="this.placeholder = 'პაროლი'"  class="single-input">
                         </div>
-                        <div class="mt-10">
+                        <div class="mt-10 @if($errors->has('role')) has_error @endif">
                             {{--<input type="text" name="role" placeholder="პაროლი" onfocus="this.placeholder = ''" onblur="this.placeholder = 'პაროლი'"  class="single-input">--}}
                             <select class="single-input" name="role">
                                 <option style="display:none;" selected="selected" value="user">მომხმარებლის ტიპი</option>
@@ -44,7 +44,7 @@
                                 <option value="poster">პოსტერი</option>
                             </select>
                         </div>
-                        <div class="mt-10">
+                        <div class="mt-10 @if($errors->has('birthdate')) has_error @endif">
                             <input type="date" name="birthdate" class="single-input">
                         </div>
                         <button type="submit" class="genric-btn primary circle arrow">რეგისტრაცია<span class="lnr lnr-arrow-right"></span></button>

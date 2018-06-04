@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="/css/animate.min.css">
     <link rel="stylesheet" href="/css/owl.carousel.css">
     <link rel="stylesheet" href="/css/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.22.0/sweetalert2.all.min.js"></script>
 </head>
 <body>
 <!-- start footer Area -->
@@ -115,5 +116,17 @@
 <script src="/js/jquery.counterup.min.js"></script>
 <script src="/js/mail-script.js"></script>
 <script src="/js/main.js"></script>
+<script>
+    @if(session()->has('swal'))
+            swal({
+        position: 'center',
+        type: 'success',
+        title: '{{ session()->get('swal') }}',
+        showConfirmButton: false,
+        timer: 5000
+        })
+    @endif
+    
+</script>
 </body>
 </html>

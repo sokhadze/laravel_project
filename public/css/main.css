@@ -2901,3 +2901,15 @@ body.mobile-nav-active #mobile-nav-toggle {
 .switch-wrap p {
   margin: 0;
 }
+
+.has_error input {
+  border:1px solid red;
+}
+
+.has_error select {
+  border:1px solid red;
+}
+
+.has_error textarea {
+  border:1px solid red;
+}

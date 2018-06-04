@@ -13,6 +13,10 @@ class PostReviewController extends Controller
     }
 
     public function store(Request $request, Post $post) {
+        $this->validate($request, [
+            'review' => 'required',
+            'rating' => 'required|numeric|max:5|min:0'
+        ]);
         $user = auth()->user();
         $post->post_reviews()->create([
             'review' => $request->review,
@@ -20,6 +24,6 @@ class PostReviewController extends Controller
             'rating' => $request->rating
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('swal', 'Review წარმატებით დაემატა');
     }
 }

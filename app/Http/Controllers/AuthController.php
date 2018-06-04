@@ -17,6 +17,15 @@ class AuthController extends Controller
     }
 
     public function registerStore(Request $request) {
+        $this->validate($request, [
+            'name' => 'required',
+            'lastname' => 'required',
+            'birthdate' => 'required',
+            'password' => 'required',
+            'role' => 'required',
+            'email' => 'required:email'
+        ]);
+
         User::create([
             'name' => $request->name,
             'lastname' => $request->lastname,

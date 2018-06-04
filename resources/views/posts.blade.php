@@ -6,8 +6,7 @@
             <div class="row height align-items-center justify-content-center">
                 <div class="col-lg-10">
                     <div class="generic-banner-content">
-                        <h2 class="text-white">შესვლა</h2>
-                        {{--<p class="text-white">It won’t be a bigger problem to find one video game lover in your <br> neighbor. Since the introduction of Virtual Game.</p>--}}
+                        <h2 class="text-white">პოსტები</h2>
                     </div>
                 </div>
             </div>

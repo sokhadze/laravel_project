@@ -26,7 +26,7 @@ class Post extends Model
     }
 
     public static function topRated() {
-        $apps = self::with('user')
+        $apps = self::with('user')->published()
             ->select('posts.*')
             ->leftJoin('post_reviews', 'posts.id', '=', 'post_reviews.post_id')
             ->addSelect(DB::raw('AVG(post_reviews.rating) as average_rating'))
